@@ -360,7 +360,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get keepChanges => '保留更改';
 
   @override
-  String get current => 'Current';
+  String get current => '当前';
 
   @override
   String get both => '两者';
@@ -369,7 +369,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remote => '远程';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => '传入';
 
   @override
   String get merge => '合并';

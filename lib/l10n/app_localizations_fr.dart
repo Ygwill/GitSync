@@ -273,7 +273,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get pushChanges => 'Envoyer les modifications';
 
   @override
-  String get updateSubmodules => 'Mettre à jour les sous-modules';
+  String get updateSubmodules => 'MAJ sous-modules';
 
   @override
   String get forcePush => 'Push forcé';
@@ -362,7 +362,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get keepChanges => 'Conserver les modifications';
 
   @override
-  String get current => 'Current';
+  String get current => 'Actuel';
 
   @override
   String get both => 'Les deux';
@@ -371,7 +371,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get remote => 'Distant';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => 'Entrant';
 
   @override
   String get merge => 'Fusionner';
@@ -415,7 +415,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Cela supprimera définitivement toutes les données de l\'application, y compris les entrées du Trousseau. Êtes-vous sûr de vouloir continuer ?';
 
   @override
-  String get iosClearDataAction => 'Effacer toutes les données';
+  String get iosClearDataAction => 'Tout effacer';
 
   @override
   String get legacyAppUserDialogTitle => 'Bienvenue dans la nouvelle version !';
@@ -817,7 +817,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get commitsNotFound => 'Aucun commit trouvé…';
 
   @override
-  String get repoNotFound => 'Aucun commit trouvé…';
+  String get repoNotFound => 'Aucun dépôt trouvé…';
 
   @override
   String get committed => 'validé';
@@ -878,7 +878,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get searchEllipsis => 'Search…';
 
   @override
-  String get applicationNotSet => 'Sélectionner les applications';
+  String get applicationNotSet => 'Choisir app(s)';
 
   @override
   String get selectApplication => 'Sélectionner l\'application(s)';
@@ -1010,7 +1010,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get replacesExistingAuth => 'Replaces existing\ncontainer auth';
 
   @override
-  String get oauth => 'oauth';
+  String get oauth => 'OAuth';
 
   @override
   String get copyFromContainer => 'Copy from Container';
@@ -1196,7 +1196,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get useSshKey => 'Utiliser la clé AUTH pour la signature des commits';
 
   @override
-  String get syncMessageLabel => 'Message de synchronisation';
+  String get syncMessageLabel => 'Message de sync';
 
   @override
   String get defaultSyncMessageLabel => 'Default Sync Message';
@@ -1345,7 +1345,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backupFileTemplate => 'backup_%s.gsbak';
 
   @override
-  String get enterPassword => 'Entrez le mot de passe';
+  String get enterPassword => 'Entrez le mot de passe %s';
 
   @override
   String get invalidPassword => 'Mot de passe invalide';
@@ -1372,7 +1372,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get improveTranslations => 'Améliorer les traductions';
 
   @override
-  String get joinTheDiscussion => 'Rejoindre la discussion Discord';
+  String get joinTheDiscussion => 'Rejoindre le Discord';
 
   @override
   String get noLogFilesFound => 'Aucun fichier journal trouvé !';
@@ -1384,7 +1384,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get uiGuide => 'Guide de l\'interface utilisateur';
 
   @override
-  String get viewPrivacyPolicy => 'Politique de confidentialité';
+  String get viewPrivacyPolicy => 'Confidentialité';
 
   @override
   String get viewEula => 'Conditions d\'utilisation (CLUF)';
@@ -1927,7 +1927,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get actionFilterFailed => 'Failed';
 
   @override
-  String get attemptAutoFix => 'Tenter une correction automatique ?';
+  String get attemptAutoFix => 'Correction auto ?';
 
   @override
   String get troubleshooting => 'Troubleshooting';

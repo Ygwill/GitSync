@@ -105,9 +105,10 @@
     "commitMessage": "コミットメッセージ",
     "abortMerge": "マージを中止",
     "keepChanges": "変更を保持",
-    "local": "ローカル",
+    "current": "現在の",
     "both": "両方",
     "remote": "リモート",
+    "incoming": "受信",
     "merge": "マージ",
     "merging": "マージ中…",
     "resolvingMerge": "マージを解決中…",
@@ -235,7 +236,7 @@
     "login": "ログイン",
     "pubKey": "公開鍵",
     "privKey": "秘密鍵",
-    "passphrase": "パスフェーズ",
+    "passphrase": "パスフレーズ",
     "privateKey": "秘密鍵",
     "sshPubKeyExample": "ssh-ed25519 AABBCCDDEEFF112233445566",
     "sshPrivKeyExample": "-----BEGIN OPENSSH PRIVATE KEY----- AABBCCDDEEFF112233445566",
@@ -347,7 +348,7 @@
     "logsEmailRecipient": "bugsviscouspotential@gmail.com",
     "repositoryDefaults": "リポジトリのデフォルト設定",
     "miscellaneous": "その他",
-    "dangerZone": "デッドゾーン",
+    "dangerZone": "危険ゾーン",
 
 
 

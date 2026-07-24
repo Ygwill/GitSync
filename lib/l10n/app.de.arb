@@ -25,9 +25,9 @@
     
 
     "syncStarting": "Änderungen werden erkannt…",
-    "syncStartPull": "Änderungen werden synchronisiert…",
+    "syncStartPull": "Sync läuft…",
     "syncStartPush": "Lokale Änderungen werden synchronisiert…",
-    "syncNotRequired": "Keine Synchronisation erforderlich!",
+    "syncNotRequired": "Kein Sync nötig!",
     "syncComplete": "Repository synchronisiert!",
     
     
@@ -71,7 +71,7 @@
     
     
     
-    "pullChanges": "Änderungen abrufen",
+    "pullChanges": "Änd. abrufen",
     "pushChanges": "Änderungen hochladen",
     
     "forcePush": "Erzwungener Push",
@@ -85,7 +85,7 @@
     "localHistoryOverwriteWarning": "Diese Aktion wird die lokale Historie überschreiben und kann nicht rückgängig gemacht werden.",
     "forcePushPullMessage": "Bitte schließen Sie die App nicht, bis der Vorgang abgeschlossen ist.",
     "manualSync": "Manuelle Synchronisation",
-    "manualSyncMsg": "Wählen Sie die Dateien aus, die Sie synchronisieren möchten",
+    "manualSyncMsg": "Dateien zum Sync wählen",
     "selectAll": "Alle auswählen",
     "deselectAll": "Alle abwählen",
     "noUncommittedChanges": "Keine nicht-commiteten Änderungen",
@@ -98,9 +98,10 @@
     "commitMessage": "Commit-Nachricht",
     "abortMerge": "Merge abbrechen",
     "keepChanges": "Änderungen behalten",
-    "local": "Lokal",
+    "current": "Aktuell",
     "both": "Beide",
     "remote": "Remote",
+    "incoming": "Eingehend",
     "merge": "Merge",
     "merging": "Merge läuft…",
     "resolvingMerge": "Merge wird aufgelöst…",
@@ -180,11 +181,11 @@
 
 
     
-    "selectYourGitProviderAndAuthenticate": "Wählen Sie Ihren Git-Anbieter aus und authentifizieren Sie sich",
+    "selectYourGitProviderAndAuthenticate": "Git-Anbieter wählen und anmelden",
     
     
     "oauthNoAffiliation": "Authentifizierung über Drittanbieter;\nkeine Zugehörigkeit oder Befürwortung impliziert.",
-    "oauth": "oauth",
+    "oauth": "OAuth",
     "ensureTokenScope": "Stellen Sie sicher, dass Ihr Token den \"repo\"-Bereich für volle Funktionalität enthält.",
     "user": "Benutzer",
     "exampleUser": "JohnSmith12",
@@ -194,7 +195,7 @@
     "pubKey": "Öffentlicher Schlüssel",
     "privKey": "Privater Schlüssel",
     
-    "privateKey": "Privater Schlüssel",
+    "privateKey": "Privatschlüssel",
     "sshPubKeyExample": "ssh-ed25519 AABBCCDDEEFF112233445566",
     "sshPrivKeyExample": "-----BEGIN OPENSSH PRIVATE KEY----- AABBCCDDEEFF112233445566",
     "generateKeys": "Schlüssel generieren",
@@ -267,7 +268,7 @@
     "restore": "Wiederherstellen",
     
     
-    "enterPassword": "Passwort eingeben",
+    "enterPassword": "%s-Passwort eingeben",
     "invalidPassword": "Ungültiges Passwort",
     
     
@@ -276,7 +277,7 @@
     "requestAFeature": "Feature anfordern",
     "contributeTitle": "Unterstützen Sie unsere Arbeit",
     
-    "joinTheDiscussion": "An der Discord teilnehmen",
+    "joinTheDiscussion": "Discord beitreten",
     
     "guidedSetup": "Geführte Einrichtung",
     "uiGuide": "UI-Anleitung",

@@ -129,7 +129,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backLabel => 'voltar';
 
   @override
-  String get authDropdownLabel => 'menu suspenso de autenticação';
+  String get authDropdownLabel => 'menu de autenticação';
 
   @override
   String get premiumDialogTitle => 'Desbloquear Premium';
@@ -244,10 +244,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get syncModeDescription => 'Sincronização automática\n(Ideal para iniciantes)';
 
   @override
-  String get syncNow => 'Sincronizar Alterações';
+  String get syncNow => 'Sync Alterações';
 
   @override
-  String get syncAllChanges => 'Sincronizar Todas as Alterações';
+  String get syncAllChanges => 'Sync Todas as Alterações';
 
   @override
   String get stageAndCommit => 'Preparar & Commit';
@@ -309,7 +309,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get forcePushPullMessage => 'Por favor, não feche ou saia do app até que o processo seja concluído.';
 
   @override
-  String get manualSync => 'Sincronização Manual';
+  String get manualSync => 'Sync Manual';
 
   @override
   String get manualSyncMsg => 'Selecione os arquivos que deseja sincronizar';
@@ -360,10 +360,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get resolveLater => 'Resolver Depois';
 
   @override
-  String get keepChanges => 'Manter Alterações';
+  String get keepChanges => 'Manter';
 
   @override
-  String get current => 'Current';
+  String get current => 'Atual';
 
   @override
   String get both => 'Ambos';
@@ -372,7 +372,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remote => 'Remote';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => 'Recebida';
 
   @override
   String get merge => 'Merge';
@@ -396,10 +396,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get resolveAll => 'Resolver Todos';
 
   @override
-  String get allCurrent => 'All Current';
+  String get allCurrent => 'Todos Atuais';
 
   @override
-  String get allIncoming => 'All Incoming';
+  String get allIncoming => 'Todos Recebidos';
 
   @override
   String get iosClearDataTitle => 'Esta é uma instalação nova?';
@@ -441,7 +441,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get welcomePositive => 'Vamos lá';
 
   @override
-  String get welcomeNegative => 'Já estou familiarizado';
+  String get welcomeNegative => 'Já conheço';
 
   @override
   String get notificationDialogTitle => 'Ativar Notificações';
@@ -463,7 +463,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get goToSettings => 'Ir para Configurações';
 
   @override
-  String get onboardingSyncSettingsTitle => 'Configurações de Sincronização';
+  String get onboardingSyncSettingsTitle => 'Config. de Sync';
 
   @override
   String get onboardingSyncSettingsSubtitle => 'Escolha como manter seus repositórios sincronizados.';
@@ -523,7 +523,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get showcaseGlobalSettingsFeatureSetup => 'Reinicie a configuração guiada ou o tour da interface';
 
   @override
-  String get showcaseSyncProgressTitle => 'Status da Sincronização';
+  String get showcaseSyncProgressTitle => 'Status da Sync';
 
   @override
   String get showcaseSyncProgressSubtitle => 'Veja o que está acontecendo de relance.';
@@ -553,7 +553,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get showcaseAddMoreFeaturePremium => 'Adicione mais containers com o Premium';
 
   @override
-  String get showcaseControlTitle => 'Controles de Sincronização';
+  String get showcaseControlTitle => 'Controles de Sync';
 
   @override
   String get showcaseControlSubtitle => 'Suas ferramentas práticas de sincronização e commit.';
@@ -667,7 +667,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get onboardingEditFeatureSyntax => 'Destaque de sintaxe';
 
   @override
-  String get onboardingEditFeatureAutosave => 'Salvamento automático';
+  String get onboardingEditFeatureAutosave => 'Auto-salvar';
 
   @override
   String get onboardingEditFeatureExperimental => 'Recurso experimental';
@@ -676,7 +676,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get onboardingNotificationDescription => 'Notificações mantêm você informado sobre:';
 
   @override
-  String get onboardingNotificationFeatureSync => 'Atualizações de status de sincronização';
+  String get onboardingNotificationFeatureSync => 'Atualizações da Sync';
 
   @override
   String get onboardingNotificationFeatureConflict => 'Alertas de merge conflict';
@@ -817,7 +817,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get commitsNotFound => 'Nenhum commit encontrado…';
 
   @override
-  String get repoNotFound => 'Nenhum repositório encontrado…';
+  String get repoNotFound => 'Nenhum repositório…';
 
   @override
   String get committed => 'realizou commit';
@@ -850,10 +850,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get openFileExplorer => 'Navegar e Editar';
 
   @override
-  String get syncSettings => 'Configurações de Sincronização';
+  String get syncSettings => 'Config. de Sync';
 
   @override
-  String get enableApplicationObserver => 'Configurações de Sincronização do App';
+  String get enableApplicationObserver => 'Config. de Sync do App';
 
   @override
   String get appSyncDescription => 'Sincroniza automaticamente quando seu app selecionado é aberto ou fechado';
@@ -902,7 +902,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get iosSyncOnAppOpened => 'Sincronizar ao abrir GitSync';
 
   @override
-  String get scheduledSyncSettings => 'Configurações de Sincronização Agendada';
+  String get scheduledSyncSettings => 'Config. Sync Agendada';
 
   @override
   String get scheduledSyncDescription => 'Sincroniza automaticamente periodicamente em segundo plano';
@@ -959,16 +959,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get enhancedScheduledSync => 'Sincronização Agendada Aprimorada';
 
   @override
-  String get quickSyncSettings => 'Configurações de Sincronização Rápida';
+  String get quickSyncSettings => 'Config. Sync Rápida';
 
   @override
   String get quickSyncDescription => 'Sincronize usando quick tiles, atalhos ou widgets personalizáveis';
 
   @override
-  String get otherSyncSettings => 'Outras Configurações de Sincronização';
+  String get otherSyncSettings => 'Outras Config. de Sync';
 
   @override
-  String get useForTileSync => 'Usar para Tile de Sincronização ';
+  String get useForTileSync => 'Usar no Tile de Sync';
 
   @override
   String get useForTileManualSync => 'Usar para Tile de Sincronização Manual';
@@ -980,7 +980,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get useForShortcutManualSync => 'Usar para Atalho de Sincronização Manual';
 
   @override
-  String get useForWidgetSync => 'Usar para Widget de Sincronização';
+  String get useForWidgetSync => 'Usar no Widget de Sync';
 
   @override
   String get useForWidgetManualSync => 'Usar para Widget de Sincronização Manual';
@@ -1196,7 +1196,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get useSshKey => 'Usar Chave de AUTH para Assinatura de Commits';
 
   @override
-  String get syncMessageLabel => 'Mensagem de Sincronização';
+  String get syncMessageLabel => 'Mensagem de Sync';
 
   @override
   String get defaultSyncMessageLabel => 'Mensagem de Sincronização Padrão';
@@ -1375,7 +1375,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get joinTheDiscussion => 'Participar do Discord';
 
   @override
-  String get noLogFilesFound => 'Nenhum arquivo de log encontrado!';
+  String get noLogFilesFound => 'Nenhum log encontrado!';
 
   @override
   String get guidedSetup => 'Configuração Guiada';
@@ -2138,7 +2138,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get issueNoComments => 'Nenhum comentário ainda';
 
   @override
-  String get issueAddComment => 'Adicionar um comentário…';
+  String get issueAddComment => 'Adicionar comentário…';
 
   @override
   String get issueSubmitComment => 'Enviar';

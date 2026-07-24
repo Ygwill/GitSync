@@ -136,9 +136,10 @@
     "commitMessage": "提交信息",
     "abortMerge": "中止合并",
     "keepChanges": "保留更改",
-    "local": "本地",
+    "current": "当前",
     "both": "两者",
     "remote": "远程",
+    "incoming": "传入",
     "merge": "合并",
     "merging": "正在合并…",
 

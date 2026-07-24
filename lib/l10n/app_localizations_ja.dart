@@ -360,7 +360,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get keepChanges => '変更を保持';
 
   @override
-  String get current => 'Current';
+  String get current => '現在の';
 
   @override
   String get both => '両方';
@@ -369,7 +369,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remote => 'リモート';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => '受信';
 
   @override
   String get merge => 'マージ';
@@ -1050,7 +1050,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get privKey => '秘密鍵';
 
   @override
-  String get passphrase => 'パスフェーズ';
+  String get passphrase => 'パスフレーズ';
 
   @override
   String get privateKey => '秘密鍵';
@@ -1397,7 +1397,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get miscellaneous => 'その他';
 
   @override
-  String get dangerZone => 'デッドゾーン';
+  String get dangerZone => '危険ゾーン';
 
   @override
   String get file => 'ファイル';

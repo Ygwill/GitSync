@@ -358,10 +358,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get resolveLater => 'Resolve Later';
 
   @override
-  String get keepChanges => 'Сохранить изменения';
+  String get keepChanges => 'Оставить изменения';
 
   @override
-  String get current => 'Current';
+  String get current => 'Текущие';
 
   @override
   String get both => 'Оба';
@@ -370,7 +370,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get remote => 'Удаленные';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => 'Входящие';
 
   @override
   String get merge => 'Слияние';
@@ -813,7 +813,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get commitsNotFound => 'Коммиты не найдены…';
 
   @override
-  String get repoNotFound => 'Коммиты не найдены…';
+  String get repoNotFound => 'Репозиторий не найден…';
 
   @override
   String get committed => 'зафиксировано';
@@ -861,7 +861,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get iosAppSyncDocsLinkText => 'Синхронизировать при открытии/закрытии других приложений';
 
   @override
-  String get accessibilityServiceDisclosureTitle => 'Раскрытие информации о службе специальных возможностей';
+  String get accessibilityServiceDisclosureTitle => 'Служба спец. возможностей';
 
   @override
   String get accessibilityServiceDisclosureMessage =>
@@ -1006,7 +1006,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get replacesExistingAuth => 'Replaces existing\ncontainer auth';
 
   @override
-  String get oauth => 'oauth';
+  String get oauth => 'OAuth';
 
   @override
   String get copyFromContainer => 'Copy from Container';
@@ -1066,13 +1066,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get generateKeys => 'сгенерировать ключи';
 
   @override
-  String get confirmKeySaved => 'подтвердить сохранение публичного ключа';
+  String get confirmKeySaved => 'подтвердить сохранение ключа';
 
   @override
   String get copiedText => 'Текст скопирован!';
 
   @override
-  String get confirmPrivKeyCopy => 'Подтвердить копирование приватного ключа';
+  String get confirmPrivKeyCopy => 'Подтвердить копирование ключа';
 
   @override
   String get confirmPrivKeyCopyMsg =>
@@ -1289,7 +1289,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get proceedAnyway => 'Proceed anyway?';
 
   @override
-  String get moreOptions => 'Дополнительные параметры';
+  String get moreOptions => 'Ещё опции';
 
   @override
   String get untrackAll => 'Untrack All';
@@ -1340,7 +1340,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backupFileTemplate => 'backup_%s.gsbak';
 
   @override
-  String get enterPassword => 'Введите пароль';
+  String get enterPassword => 'Введите пароль %s';
 
   @override
   String get invalidPassword => 'Неверный пароль';
@@ -1355,7 +1355,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get documentation => 'Руководства и Wiki';
 
   @override
-  String get viewDocumentation => 'Просмотреть руководства и Wiki';
+  String get viewDocumentation => 'Руководства и Wiki';
 
   @override
   String get requestAFeature => 'Запросить функцию';
@@ -1379,7 +1379,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get uiGuide => 'Руководство по интерфейсу';
 
   @override
-  String get viewPrivacyPolicy => 'Политика конфиденциальности';
+  String get viewPrivacyPolicy => 'Конфиденциальность';
 
   @override
   String get viewEula => 'Условия использования (EULA)';
@@ -1922,7 +1922,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get actionFilterFailed => 'Failed';
 
   @override
-  String get attemptAutoFix => 'Попытаться автоисправление?';
+  String get attemptAutoFix => 'Автоисправление?';
 
   @override
   String get troubleshooting => 'Troubleshooting';

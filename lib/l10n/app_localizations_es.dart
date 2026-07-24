@@ -279,7 +279,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forcePush => 'Push Forzado';
 
   @override
-  String get forcePushing => 'Realizando push forzado…';
+  String get forcePushing => 'Push forzado…';
 
   @override
   String get confirmForcePush => 'Confirmar Push Forzado';
@@ -292,7 +292,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forcePull => 'Pull Forzado';
 
   @override
-  String get forcePulling => 'Realizando pull forzado…';
+  String get forcePulling => 'Pull forzado…';
 
   @override
   String get confirmForcePull => 'Confirmar Pull Forzado';
@@ -350,7 +350,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get mergeDialogMessage => 'Usa el editor para resolver los conflictos de fusión';
 
   @override
-  String get commitMessage => 'Mensaje de Confirmación';
+  String get commitMessage => 'Mensaje de commit';
 
   @override
   String get abortMerge => 'Abortar Fusión';
@@ -362,7 +362,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get keepChanges => 'Mantener Cambios';
 
   @override
-  String get current => 'Current';
+  String get current => 'Actual';
 
   @override
   String get both => 'Ambos';
@@ -371,7 +371,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get remote => 'Remoto';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => 'Entrante';
 
   @override
   String get merge => 'Fusionar';
@@ -439,7 +439,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get welcomePositive => 'Vamos';
 
   @override
-  String get welcomeNegative => 'Ya estoy familiarizado';
+  String get welcomeNegative => 'Ya lo conozco';
 
   @override
   String get notificationDialogTitle => 'Habilitar Notificaciones';
@@ -812,10 +812,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get unbornBranch => 'Unborn Branch';
 
   @override
-  String get commitsNotFound => 'No se encontraron confirmaciones…';
+  String get commitsNotFound => 'Sin confirmaciones…';
 
   @override
-  String get repoNotFound => 'No se encontraron confirmaciones…';
+  String get repoNotFound => 'Sin repositorio…';
 
   @override
   String get committed => 'confirmado';
@@ -1008,7 +1008,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get replacesExistingAuth => 'Replaces existing\ncontainer auth';
 
   @override
-  String get oauth => 'oauth';
+  String get oauth => 'OAuth';
 
   @override
   String get copyFromContainer => 'Copy from Container';
@@ -1342,7 +1342,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get backupFileTemplate => 'backup_%s.gsbak';
 
   @override
-  String get enterPassword => 'Ingresa Contraseña';
+  String get enterPassword => 'Ingresa la contraseña de %s';
 
   @override
   String get invalidPassword => 'Contraseña Inválida';
@@ -1381,7 +1381,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get uiGuide => 'Guía de Interfaz';
 
   @override
-  String get viewPrivacyPolicy => 'Política de Privacidad';
+  String get viewPrivacyPolicy => 'Privacidad';
 
   @override
   String get viewEula => 'Términos de Uso (EULA)';

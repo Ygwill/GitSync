@@ -75,13 +75,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get syncStarting => 'Änderungen werden erkannt…';
 
   @override
-  String get syncStartPull => 'Änderungen werden synchronisiert…';
+  String get syncStartPull => 'Sync läuft…';
 
   @override
   String get syncStartPush => 'Lokale Änderungen werden synchronisiert…';
 
   @override
-  String get syncNotRequired => 'Keine Synchronisation erforderlich!';
+  String get syncNotRequired => 'Kein Sync nötig!';
 
   @override
   String get syncComplete => 'Repository synchronisiert!';
@@ -267,7 +267,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fetchRemote => 'Fetch %s';
 
   @override
-  String get pullChanges => 'Änderungen abrufen';
+  String get pullChanges => 'Änd. abrufen';
 
   @override
   String get pushChanges => 'Änderungen hochladen';
@@ -311,7 +311,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get manualSync => 'Manuelle Synchronisation';
 
   @override
-  String get manualSyncMsg => 'Wählen Sie die Dateien aus, die Sie synchronisieren möchten';
+  String get manualSyncMsg => 'Dateien zum Sync wählen';
 
   @override
   String get commit => 'Commit';
@@ -362,7 +362,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get keepChanges => 'Änderungen behalten';
 
   @override
-  String get current => 'Current';
+  String get current => 'Aktuell';
 
   @override
   String get both => 'Beide';
@@ -371,7 +371,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remote => 'Remote';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => 'Eingehend';
 
   @override
   String get merge => 'Merge';
@@ -993,7 +993,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remoteAuthMismatchUsesHttps => 'This remote uses HTTPS or OAuth — tap to switch';
 
   @override
-  String get selectYourGitProviderAndAuthenticate => 'Wählen Sie Ihren Git-Anbieter aus und authentifizieren Sie sich';
+  String get selectYourGitProviderAndAuthenticate => 'Git-Anbieter wählen und anmelden';
 
   @override
   String get oauthProviders => 'oAuth Providers';
@@ -1008,7 +1008,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get replacesExistingAuth => 'Replaces existing\ncontainer auth';
 
   @override
-  String get oauth => 'oauth';
+  String get oauth => 'OAuth';
 
   @override
   String get copyFromContainer => 'Copy from Container';
@@ -1056,7 +1056,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get passphrase => 'Passphrase';
 
   @override
-  String get privateKey => 'Privater Schlüssel';
+  String get privateKey => 'Privatschlüssel';
 
   @override
   String get sshPubKeyExample => 'ssh-ed25519 AABBCCDDEEFF112233445566';
@@ -1342,7 +1342,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backupFileTemplate => 'backup_%s.gsbak';
 
   @override
-  String get enterPassword => 'Passwort eingeben';
+  String get enterPassword => '%s-Passwort eingeben';
 
   @override
   String get invalidPassword => 'Ungültiges Passwort';
@@ -1369,7 +1369,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get improveTranslations => 'Improve Translations';
 
   @override
-  String get joinTheDiscussion => 'An der Discord teilnehmen';
+  String get joinTheDiscussion => 'Discord beitreten';
 
   @override
   String get noLogFilesFound => 'No log files found!';

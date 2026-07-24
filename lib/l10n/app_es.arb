@@ -76,11 +76,11 @@
     "pushChanges": "Enviar Cambios",
     
     "forcePush": "Push Forzado",
-    "forcePushing": "Realizando push forzado…",
+    "forcePushing": "Push forzado…",
     "confirmForcePush": "Confirmar Push Forzado",
     "confirmForcePushMsg": "¿Estás seguro de que quieres hacer un push forzado de estos cambios? Cualquier conflicto de fusión en curso será abortado.",
     "forcePull": "Pull Forzado",
-    "forcePulling": "Realizando pull forzado…",
+    "forcePulling": "Pull forzado…",
     "confirmForcePull": "Confirmar Pull Forzado",
     "confirmForcePullMsg": "¿Estás seguro de que quieres hacer un pull forzado de estos cambios? Cualquier conflicto de fusión en curso será ignorado.",
     "localHistoryOverwriteWarning": "Esta acción sobrescribirá el historial local y no se puede deshacer.",
@@ -96,12 +96,13 @@
     "mergeConflictItemMessage": "¡Hay un conflicto de fusión! Toca para resolver",
     "mergeConflict": "Conflicto de Fusión",
     "mergeDialogMessage": "Usa el editor para resolver los conflictos de fusión",
-    "commitMessage": "Mensaje de Confirmación",
+    "commitMessage": "Mensaje de commit",
     "abortMerge": "Abortar Fusión",
     "keepChanges": "Mantener Cambios",
-    "local": "Local",
+    "current": "Actual",
     "both": "Ambos",
     "remote": "Remoto",
+    "incoming": "Entrante",
     "merge": "Fusionar",
     "merging": "Fusionando…",
 
@@ -120,7 +121,7 @@
     "setUp": "Configurar",
     "welcomePositive": "Vamos",
     "welcomeNeutral": "Omitir",
-    "welcomeNegative": "Ya estoy familiarizado",
+    "welcomeNegative": "Ya lo conozco",
     "notificationDialogTitle": "Habilitar Notificaciones",
     "allFilesAccessDialogTitle": "Habilitar \"Acceso a Todos los Archivos\"",
     "authorDetailsPromptTitle": "Detalles del Autor Requeridos",
@@ -134,8 +135,8 @@
 
     "@@x-HOME_PAGE": "",
     "detachedHead": "Head Desconectado",
-    "commitsNotFound": "No se encontraron confirmaciones…",
-    "repoNotFound": "No se encontraron confirmaciones…",
+    "commitsNotFound": "Sin confirmaciones…",
+    "repoNotFound": "Sin repositorio…",
     "committed": "confirmado",
     "additions": "%s ++",
     "deletions": "%s --",
@@ -167,7 +168,7 @@
     
     
     "oauthNoAffiliation": "Autenticación a través de terceros;\nno se implica afiliación o respaldo.",
-    "oauth": "oauth",
+    "oauth": "OAuth",
     "ensureTokenScope": "Asegúrate de que tu token incluya el ámbito \"repo\" para funcionalidad completa.",
     "user": "usuario",
     "exampleUser": "JuanPérez12",
@@ -250,7 +251,7 @@
     "restore": "Restaurar",
     
     
-    "enterPassword": "Ingresa Contraseña",
+    "enterPassword": "Ingresa la contraseña de %s",
     "invalidPassword": "Contraseña Inválida",
     
     
@@ -263,7 +264,7 @@
     
     "guidedSetup": "Configuración Guiada",
     "uiGuide": "Guía de Interfaz",
-    "viewPrivacyPolicy": "Política de Privacidad",
+    "viewPrivacyPolicy": "Privacidad",
     "viewEula": "Términos de Uso (EULA)",
     "shareLogs": "Compartir Registros",
     

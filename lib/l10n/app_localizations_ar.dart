@@ -216,7 +216,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get premiumHookCheckYamlJson => 'فحص YAML / JSON';
 
   @override
-  String get premiumHookMixedLineEnding => 'إصلاح نهايات السطور المختلطة';
+  String get premiumHookMixedLineEnding => 'إصلاح نهايات الأسطر';
 
   @override
   String get premiumHookDetectPrivateKey => 'كشف المفاتيح الخاصة';
@@ -249,7 +249,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncAllChanges => 'مزامنة كل التغييرات';
 
   @override
-  String get stageAndCommit => 'إدراج وإرسال (Stage & Commit)';
+  String get stageAndCommit => 'إدراج وإرسال';
 
   @override
   String get downloadChanges => 'تحميل التغييرات';
@@ -357,10 +357,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resolveLater => 'الحل لاحقاً';
 
   @override
-  String get keepChanges => 'الإبقاء على التغييرات';
+  String get keepChanges => 'الاحتفاظ بالتغييرات';
 
   @override
-  String get current => 'Current';
+  String get current => 'الحالي';
 
   @override
   String get both => 'كلاهما';
@@ -369,7 +369,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remote => 'البعيد';
 
   @override
-  String get incoming => 'Incoming';
+  String get incoming => 'الوارد';
 
   @override
   String get merge => 'دمج';
@@ -393,10 +393,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resolveAll => 'حل الكل';
 
   @override
-  String get allCurrent => 'All Current';
+  String get allCurrent => 'الكل حالي';
 
   @override
-  String get allIncoming => 'All Incoming';
+  String get allIncoming => 'الكل وارد';
 
   @override
   String get iosClearDataTitle => 'هل هذا تثبيت جديد؟';
@@ -489,10 +489,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get onboardingQuickSyncFeatureWidget => 'مزامنة عبر الودجت';
 
   @override
-  String get onboardingOtherSyncFeatureAndroid => 'نوايا (Intents) أندرويد';
+  String get onboardingOtherSyncFeatureAndroid => 'نوايا أندرويد';
 
   @override
-  String get onboardingOtherSyncFeatureIos => 'نوايا (Intents) iOS';
+  String get onboardingOtherSyncFeatureIos => 'نوايا iOS';
 
   @override
   String get onboardingOtherSyncDescription => 'استكشف طرق مزامنة إضافية لمنصتك';
@@ -801,7 +801,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get currentBranch => 'الفرع الحالي';
 
   @override
-  String get detachedHead => 'رأس منفصل (Detached HEAD)';
+  String get detachedHead => 'HEAD منفصل';
 
   @override
   String get unbornBranch => 'فرع لم يبدأ بعد';
@@ -1054,10 +1054,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get privateKey => 'المفتاح الخاص';
 
   @override
-  String get sshPubKeyExample => 'ssh-ed25519 AABB...';
+  String get sshPubKeyExample => 'ssh-ed25519 AABBCCDDEEFF112233445566';
 
   @override
-  String get sshPrivKeyExample => '-----BEGIN OPENSSH PRIVATE KEY-----';
+  String get sshPrivKeyExample => '-----BEGIN OPENSSH PRIVATE KEY----- AABBCCDDEEFF112233445566';
 
   @override
   String get generateKeys => 'توليد مفاتيح';
@@ -1204,7 +1204,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncMessageTimeFormatDescription => 'يستخدم صيغة التاريخ القياسية';
 
   @override
-  String get remoteLabel => 'المستودع البعيد الافتراضي';
+  String get remoteLabel => 'البعيد الافتراضي';
 
   @override
   String get defaultRemote => 'origin';
@@ -1552,7 +1552,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmRepositoryDeleteMessage => 'هل أنت متأكد من حذف المستودع \"%s\" ومحتوياته؟';
 
   @override
-  String get submodulesFoundTitle => 'تم العثور على وحدات فرعية';
+  String get submodulesFoundTitle => 'وحدات فرعية موجودة';
 
   @override
   String get submodulesFoundMessage => 'هل تود إضافتها كمستودعات منفصلة؟ (ميزة احترافية)';
@@ -1567,10 +1567,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteRemote => 'حذف مستودع بعيد';
 
   @override
-  String get renameRemote => 'إعادة تسمية المستودع البعيد';
+  String get renameRemote => 'إعادة تسمية البعيد';
 
   @override
-  String get remoteName => 'اسم المستودع البعيد';
+  String get remoteName => 'اسم البعيد';
 
   @override
   String get confirmDeleteRemote => 'هل أنت متأكد من حذف المستودع البعيد \"%s\"؟';
@@ -1618,7 +1618,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmDeleteBranchMsg => 'هل أنت متأكد من حذف الفرع \"%s\"؟';
 
   @override
-  String get menuAmendCommit => 'تعديل الإرسال الأخير (Amend)';
+  String get menuAmendCommit => 'تعديل الإرسال';
 
   @override
   String get menuAmendCommitDesc => 'تعديل رسالة أو محتوى آخر إرسال';
@@ -1630,7 +1630,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get menuUndoCommitDesc => 'إلغاء الإرسال مع الإبقاء على التغييرات مدرجة';
 
   @override
-  String get menuResetToCommit => 'إعادة تعيين إلى هذا الإرسال';
+  String get menuResetToCommit => 'إعادة تعيين للإرسال';
 
   @override
   String get menuResetToCommitDesc => 'تجاهل كل الإرسالات التي تلي هذا';
@@ -1660,7 +1660,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get menuCreateTagDesc => 'إضافة وسام لهذا الإرسال';
 
   @override
-  String get menuCherryPick => 'انتقاء الإرسال (Cherry Pick)';
+  String get menuCherryPick => 'انتقاء الإرسال';
 
   @override
   String get menuCherryPickDesc => 'تطبيق هذا الإرسال على الفرع الحالي';
@@ -1726,7 +1726,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get revert => 'عكس (Revert)';
 
   @override
-  String get amendCommit => 'تعديل الإرسال (Amend)';
+  String get amendCommit => 'تعديل الإرسال';
 
   @override
   String get amendCommitMsg => 'تعديل رسالة الإرسال';
@@ -1786,7 +1786,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cherryPickCommitsWarning => 'سيتم التطبيق بالترتيب الزمني. قد تحدث تعارضات.';
 
   @override
-  String get squashCommits => 'دمج الإرسالات (Squash)';
+  String get squashCommits => 'دمج الإرسالات';
 
   @override
   String get squashCommitsMsg => 'دمج %s إرسالات في إرسال واحد';
@@ -1915,7 +1915,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get attemptAutoFix => 'محاولة الإصلاح التلقائي؟';
 
   @override
-  String get troubleshooting => 'استكشاف الأخطاء وإصلاحها';
+  String get troubleshooting => 'حل المشكلات';
 
   @override
   String get youreOffline => 'أنت غير متصل.';
@@ -2239,7 +2239,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prCommits => 'الإرسالات';
 
   @override
-  String get prCommitsNotFound => 'لم يتم العثور على إرسالات';
+  String get prCommitsNotFound => 'لا توجد إرسالات';
 
   @override
   String get prChecks => 'الفحوصات';

@@ -98,10 +98,11 @@
     "mergeDialogMessage": "Используйте редактор для разрешения конфликтов слияния",
     "commitMessage": "Сообщение коммита",
     "abortMerge": "Прервать слияние",
-    "keepChanges": "Сохранить изменения",
-    "local": "Локальные",
+    "keepChanges": "Оставить изменения",
+    "current": "Текущие",
     "both": "Оба",
     "remote": "Удаленные",
+    "incoming": "Входящие",
     "merge": "Слияние",
     "merging": "Слияние…",
 
@@ -135,14 +136,14 @@
     "@@x-HOME_PAGE": "",
     "detachedHead": "Отсоединенная HEAD",
     "commitsNotFound": "Коммиты не найдены…",
-    "repoNotFound": "Коммиты не найдены…",
+    "repoNotFound": "Репозиторий не найден…",
     "committed": "зафиксировано",
     "additions": "%s ++",
     "deletions": "%s --",
     "auth": "АВТОРИЗАЦИЯ",
     
     
-    "accessibilityServiceDisclosureTitle": "Раскрытие информации о службе специальных возможностей",
+    "accessibilityServiceDisclosureTitle": "Служба спец. возможностей",
     "accessibilityServiceDisclosureMessage": "Для улучшения вашего опыта\nGitSync использует службу специальных возможностей Android для обнаружения открытия или закрытия приложений.\n\nЭто помогает нам предоставить персонализированные функции без сохранения или передачи данных.\n\nᴘᴏᴊᴀʟᴜʏsᴛᴀ ᴠᴋʟᴊuᴄʜɪᴛᴇ ɢɪᴛsʏɴᴄ ɴᴀ sʟᴇᴅᴜʏsᴄʜᴇᴍ ᴇᴋʀᴀɴᴇ",
     "search": "Поиск",
     "applicationNotSet": "Выбрать приложение(я)",
@@ -167,7 +168,7 @@
     
     
     "oauthNoAffiliation": "Авторизация через третьи стороны;\nникакой принадлежности или одобрения не подразумевается.",
-    "oauth": "oauth",
+    "oauth": "OAuth",
     "ensureTokenScope": "Убедитесь, что ваш токен включает область \"repo\" для полной функциональности.",
     "user": "пользователь",
     "exampleUser": "IvanPetrov12",
@@ -181,9 +182,9 @@
     "sshPubKeyExample": "ssh-ed25519 AABBCCDDEEFF112233445566",
     "sshPrivKeyExample": "-----BEGIN OPENSSH PRIVATE KEY----- AABBCCDDEEFF112233445566",
     "generateKeys": "сгенерировать ключи",
-    "confirmKeySaved": "подтвердить сохранение публичного ключа",
+    "confirmKeySaved": "подтвердить сохранение ключа",
     "copiedText": "Текст скопирован!",
-    "confirmPrivKeyCopy": "Подтвердить копирование приватного ключа",
+    "confirmPrivKeyCopy": "Подтвердить копирование ключа",
     "confirmPrivKeyCopyMsg": "Вы уверены, что хотите скопировать ваш приватный ключ в буфер обмена?\n\nЛюбой, кто имеет доступ к этому ключу, может управлять вашей учетной записью. Убедитесь, что вставляете его только в безопасных местах и очищаете буфер обмена после этого.",
     "understood": "Понял",
     "importPrivateKey": "Импорт приватного ключа",
@@ -237,7 +238,7 @@
     
     
     
-    "moreOptions": "Дополнительные параметры",
+    "moreOptions": "Ещё опции",
 
 
 
@@ -250,12 +251,12 @@
     "restore": "Восстановить",
     
     
-    "enterPassword": "Введите пароль",
+    "enterPassword": "Введите пароль %s",
     "invalidPassword": "Неверный пароль",
     
     
     "documentation": "Руководства и Wiki",
-    "viewDocumentation": "Просмотреть руководства и Wiki",
+    "viewDocumentation": "Руководства и Wiki",
     "requestAFeature": "Запросить функцию",
     "contributeTitle": "Поддержите нашу работу",
     
@@ -263,7 +264,7 @@
     
     "guidedSetup": "Пошаговая настройка",
     "uiGuide": "Руководство по интерфейсу",
-    "viewPrivacyPolicy": "Политика конфиденциальности",
+    "viewPrivacyPolicy": "Конфиденциальность",
     "viewEula": "Условия использования (EULA)",
     "shareLogs": "Поделиться логами",
     
@@ -321,7 +322,7 @@
 
 
     "@@x-ERRORS": "",
-    "attemptAutoFix": "Попытаться автоисправление?",
+    "attemptAutoFix": "Автоисправление?",
     "youreOffline": "Вы офлайн.",
     "someFeaturesMayNotWork": "Некоторые функции могут не работать.",
     "ongoingMergeConflict": "Текущий конфликт слияния",
