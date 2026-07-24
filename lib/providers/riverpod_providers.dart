@@ -130,7 +130,7 @@ class ListRemotesNotifier extends CachedGitNotifier<List<String>> {
 
   @override
   Future<List<String>> fetchLive() =>
-      runGitOperation<List<String>>(LogType.ListRemotes, (event) => event?["result"].map<String>((r) => "$r").toList() ?? <String>[]);
+      runGitOperation<List<String>>(LogType.ListRemotes, (event) => (event?["result"] as List?)?.map<String>((r) => "$r").toList() ?? <String>[]);
 
   @override
   Future<void> writeCache(SettingsManager manager, List<String> value) => manager.setStringList(StorageKey.setman_remotes, value);
@@ -202,7 +202,7 @@ class ConflictingFilesNotifier extends CachedGitNotifier<List<(String, GitManage
   @override
   Future<List<(String, GitManagerRs.ConflictType)>> fetchLive() => runGitOperation<List<(String, GitManagerRs.ConflictType)>>(
     LogType.ConflictingFiles,
-    (event) => (event?["result"] as List)
+    (event) => ((event?["result"] as List?) ?? [])
         .map<(String, GitManagerRs.ConflictType)>((item) => (item[0] as String, GitManagerRs.ConflictType.values.byName(item[1] as String)))
         .toList(),
   );
@@ -250,7 +250,9 @@ class RecentCommitsNotifier extends CachedGitNotifier<List<GitManagerRs.Commit>>
     var cancelled = false;
     ref.onDispose(() {
       cancelled = true;
-      ref.read(isLoadingCommitsProvider.notifier).state = false;
+      try {
+        ref.read(isLoadingCommitsProvider.notifier).state = false;
+      } catch (_) {}
     });
 
     final cached = await readCache(manager);
@@ -570,7 +572,7 @@ class SubmodulePathsNotifier extends CachedGitNotifier<List<String>> {
   Future<List<String>> fetchLive() async {
     final dirPath = (await ref.read(gitDirPathProvider.future))?.$1;
     if (dirPath == null) return [];
-    return runGitOperation<List<String>>(LogType.GetSubmodules, (event) => event?["result"].map<String>((path) => "$path").toList() ?? <String>[], {
+    return runGitOperation<List<String>>(LogType.GetSubmodules, (event) => (event?["result"] as List?)?.map<String>((path) => "$path").toList() ?? <String>[], {
       "dir": dirPath,
     });
   }

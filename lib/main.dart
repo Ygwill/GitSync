@@ -756,6 +756,7 @@ class _MyAppState extends State<MyApp> {
         ),
         home: ShowCaseWidget(
           blurValue: 3,
+          enableAutoScroll: true,
           builder: (context) {
             t = AppLocalizations.of(context);
             FlutterBackgroundService().invoke(
@@ -1043,7 +1044,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
           await runGitOperation(LogType.DeleteRemote, (event) => event, {"name": currentRemoteName});
           final remainingRemotes = await runGitOperation<List<String>>(
             LogType.ListRemotes,
-            (event) => event?["result"].map<String>((r) => "$r").toList() ?? <String>[],
+            (event) => (event?["result"] as List?)?.map<String>((r) => "$r").toList() ?? <String>[],
           );
           if (remainingRemotes.isNotEmpty) {
             await uiSettingsManager.setStringNullable(StorageKey.setman_remote, remainingRemotes.first);
@@ -1489,7 +1490,9 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
             if (result == false &&
                 (await runGitOperation<List<(String, int)>>(
                   LogType.UncommittedFiles,
-                  (event) => event?["result"].map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? [],
+                  (event) =>
+                      (event?["result"] as List?)?.map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ??
+                      <(String, int)>[],
                   {"repomanRepoindex": repomanRepoindex},
                 )).isNotEmpty) {
               Fluttertoast.showToast(msg: t.pullFailed, toastLength: Toast.LENGTH_LONG, gravity: null);

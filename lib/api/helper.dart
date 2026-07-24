@@ -330,7 +330,7 @@ Future<bool> validateOrInitGitDir(BuildContext context, String dir) async {
     if (oAuthInfo != null && resolvedPath != null) {
       final remotes = await runGitOperation<List<String>>(
         LogType.ListRemotes,
-        (event) => event?["result"].map<String>((r) => "$r").toList() ?? <String>[],
+        (event) => (event?["result"] as List?)?.map<String>((r) => "$r").toList() ?? <String>[],
         {'dirPath': resolvedPath},
       );
       if (remotes.isEmpty) {
@@ -462,7 +462,7 @@ Future<void> setGitDirPathGetSubmodules(BuildContext context, String dir, Widget
 
   final submodulePaths = await runGitOperation<List<String>>(
     LogType.GetSubmodules,
-    (event) => event?["result"].map<String>((path) => "$path").toList() ?? [],
+    (event) => (event?["result"] as List?)?.map<String>((path) => "$path").toList() ?? <String>[],
     {"dir": dir},
   );
 

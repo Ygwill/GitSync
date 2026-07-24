@@ -37,7 +37,7 @@ Future<bool> showDialog(BuildContext context, {bool? hasRemotes}) async {
   final editorLineWrap = await repoManager.getBool(StorageKey.repoman_editorLineWrap);
   final bool resolvedHasRemotes =
       hasRemotes ??
-      (await runGitOperation<List<String>>(LogType.ListRemotes, (event) => event?["result"].map<String>((r) => "$r").toList())).isNotEmpty == true;
+      (await runGitOperation<List<String>>(LogType.ListRemotes, (event) => (event?["result"] as List?)?.map<String>((r) => "$r").toList() ?? <String>[])).isNotEmpty == true;
 
   if (demo) {
     selectedFiles.add("storage/external/example/file_changed.md");
@@ -53,22 +53,22 @@ Future<bool> showDialog(BuildContext context, {bool? hasRemotes}) async {
 
   Future<List<(String, int)>> uncommitedFilePaths = runGitOperation<List<(String, int)>>(
     LogType.UncommittedFiles,
-    (event) => event?["result"].map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? [],
+    (event) => (event?["result"] as List?)?.map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? <(String, int)>[],
   );
   Future<List<(String, int)>> stagedFilePaths = runGitOperation<List<(String, int)>>(
     LogType.StagedFiles,
-    (event) => event?["result"].map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? [],
+    (event) => (event?["result"] as List?)?.map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? <(String, int)>[],
   );
 
   Future<void> reload() async {
     uncommitedFilePaths = runGitOperation<List<(String, int)>>(
       LogType.UncommittedFiles,
-      (event) => event?["result"].map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? [],
+      (event) => (event?["result"] as List?)?.map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? <(String, int)>[],
     );
 
     stagedFilePaths = runGitOperation<List<(String, int)>>(
       LogType.StagedFiles,
-      (event) => event?["result"].map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList(),
+      (event) => (event?["result"] as List?)?.map<(String, int)>((item) => ("${item[0]}", int.parse("${item[1]}"))).toList() ?? <(String, int)>[],
     );
 
     diffCache.clear();

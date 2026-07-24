@@ -63,9 +63,11 @@ class _UnlockPremiumState extends ConsumerState<UnlockPremium> {
         children: [
           FaIcon(icon, color: colours.premiumAccent, size: textMD),
           SizedBox(width: spaceSM),
-          Text(
-            text,
-            style: TextStyle(color: colours.primaryLight, fontSize: textSM, fontWeight: FontWeight.bold, fontFamily: 'AtkinsonHyperlegible'),
+          Flexible(
+            child: Text(
+              text,
+              style: TextStyle(color: colours.primaryLight, fontSize: textSM, fontWeight: FontWeight.bold, fontFamily: 'AtkinsonHyperlegible'),
+            ),
           ),
         ],
       ),

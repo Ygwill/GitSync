@@ -141,6 +141,7 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
           },
           blendMode: BlendMode.dstOut,
           child: SingleChildScrollView(
+            key: Key('settings'),
             scrollDirection: orientation == Orientation.portrait ? Axis.vertical : Axis.horizontal,
             controller: _controller,
             child: Container(
@@ -157,11 +158,8 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   (orientation == Orientation.portrait
-                      ? (List<Widget> children) => Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: children,
-                        )
+                      ? (List<Widget> children) =>
+                            Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisAlignment: MainAxisAlignment.start, children: children)
                       : (List<Widget> children) => Expanded(
                           child: ShaderMask(
                             shaderCallback: (Rect rect) {
@@ -227,9 +225,7 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
                                                     Expanded(
                                                       child: TextButton.icon(
                                                         onPressed: () async {
-                                                          await ImportPrivKeyDialog.showDialog(context, (
-                                                            (String, String) sshCredentials,
-                                                          ) async {
+                                                          await ImportPrivKeyDialog.showDialog(context, ((String, String) sshCredentials) async {
                                                             await uiSettingsManager.setStringNullable(
                                                               StorageKey.setman_gitCommitSigningKey,
                                                               sshCredentials.$2,
@@ -298,17 +294,10 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
                                                                 StorageKey.setman_gitCommitSigningPassphrase,
                                                                 null,
                                                               );
-                                                              await uiSettingsManager.setStringNullable(
-                                                                StorageKey.setman_gitCommitSigningKey,
-                                                                null,
-                                                              );
+                                                              await uiSettingsManager.setStringNullable(StorageKey.setman_gitCommitSigningKey, null);
                                                               if (mounted) setState(() {});
                                                             },
-                                                            icon: FaIcon(
-                                                              FontAwesomeIcons.trash,
-                                                              color: colours.tertiaryNegative,
-                                                              size: textMD,
-                                                            ),
+                                                            icon: FaIcon(FontAwesomeIcons.trash, color: colours.tertiaryNegative, size: textMD),
                                                           )
                                                         : SizedBox.shrink(),
                                                   ],
@@ -326,14 +315,9 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
                                                   style: ButtonStyle(
                                                     alignment: Alignment.centerLeft,
                                                     backgroundColor: WidgetStatePropertyAll(colours.tertiaryDark),
-                                                    padding: WidgetStatePropertyAll(
-                                                      EdgeInsets.symmetric(horizontal: spaceMD, vertical: spaceSM),
-                                                    ),
+                                                    padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: spaceMD, vertical: spaceSM)),
                                                     shape: WidgetStatePropertyAll(
-                                                      RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.all(cornerRadiusMD),
-                                                        side: BorderSide.none,
-                                                      ),
+                                                      RoundedRectangleBorder(borderRadius: BorderRadius.all(cornerRadiusMD), side: BorderSide.none),
                                                     ),
                                                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                     minimumSize: WidgetStatePropertyAll(Size.zero),
@@ -350,11 +334,7 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
                                                     width: double.infinity,
                                                     child: Text(
                                                       t.useSshKey.toUpperCase(),
-                                                      style: TextStyle(
-                                                        color: colours.primaryLight,
-                                                        fontSize: textMD,
-                                                        fontWeight: FontWeight.bold,
-                                                      ),
+                                                      style: TextStyle(color: colours.primaryLight, fontSize: textMD, fontWeight: FontWeight.bold),
                                                     ),
                                                   ),
                                                 )
@@ -430,11 +410,8 @@ class _SettingsMain extends ConsumerState<SettingsMain> with WidgetsBindingObser
                   SizedBox(height: spaceLG, width: spaceLG),
 
                   (orientation == Orientation.portrait
-                      ? (List<Widget> children) => Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: children,
-                        )
+                      ? (List<Widget> children) =>
+                            Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisAlignment: MainAxisAlignment.start, children: children)
                       : (List<Widget> children) => Expanded(
                           child: ShaderMask(
                             shaderCallback: (Rect rect) {
