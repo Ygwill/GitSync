@@ -53,23 +53,28 @@ abstract class CachedGitNotifier<T> extends AsyncNotifier<T> {
     }
 
     if (cacheValid) {
-      () async {
-        try {
-          final live = await fetchLive();
-          if (!cancelled && await _isCurrentIndex(repoIndex)) {
-            state = AsyncData(live);
-            await writeCache(manager, live);
+      final hasCache = cached != null
+          && (cached is! List || cached.isNotEmpty)
+          && (cached is! Map || cached.isNotEmpty);
+      if (hasCache) {
+        () async {
+          try {
+            final live = await fetchLive();
+            if (!cancelled && await _isCurrentIndex(repoIndex)) {
+              state = AsyncData(live);
+              await writeCache(manager, live);
+            }
+          } on OperationNotExecuted {
+          } catch (e, s) {
+            if (!cancelled && await _isCurrentIndex(repoIndex)) {
+              state = AsyncData(cached);
+            }
+            Logger.logError(LogType.Global, e, s);
           }
-        } on OperationNotExecuted {
-        } catch (e, s) {
-          if (!cancelled && await _isCurrentIndex(repoIndex)) {
-            state = AsyncData(cached);
-          }
-          Logger.logError(LogType.Global, e, s);
-        }
-      }();
+        }();
 
-      return cached;
+        return cached;
+      }
     }
 
     final live = await fetchLive();
