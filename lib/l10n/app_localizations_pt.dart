@@ -760,10 +760,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get onboardingLaunchWiki => 'Abrir a wiki';
 
   @override
-  String get onboardingHowYouFoundUsTitle => 'How did you discover GitSync?';
+  String get onboardingHowYouFoundUsTitle => 'Como descobriu o GitSync?';
 
   @override
-  String get onboardingHowYouFoundUsSubtitle => 'Help us understand where our users come from (select all that apply)';
+  String get onboardingHowYouFoundUsSubtitle => 'Ajude-nos a entender de onde vêm os nossos utilizadores (selecione tudo o que se aplicar)';
 
   @override
   String get sourceReddit => 'Reddit';
@@ -787,22 +787,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sourceStore => 'Play Store / App Store';
 
   @override
-  String get sourceWordOfMouth => 'Word of mouth';
+  String get sourceWordOfMouth => 'Boca a boca';
 
   @override
-  String get sourceAdvertisements => 'Advertisements';
+  String get sourceAdvertisements => 'Anúncios';
 
   @override
   String get sourceObsidian => 'Obsidian Git Plugin';
 
   @override
-  String get sourceAiSearch => 'AI Search (ChatGPT, Claude, Grok)';
+  String get sourceAiSearch => 'Pesquisa IA (ChatGPT, Claude, Grok)';
 
   @override
-  String get sourceOther => 'Other';
+  String get sourceOther => 'Outro';
 
   @override
-  String get sourceOtherHint => 'Tell us where';
+  String get sourceOtherHint => 'Diga-nos onde';
 
   @override
   String get currentBranch => 'Branch Atual';

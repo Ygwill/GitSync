@@ -753,10 +753,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get onboardingLaunchWiki => 'فتح الـ Wiki';
 
   @override
-  String get onboardingHowYouFoundUsTitle => 'How did you discover GitSync?';
+  String get onboardingHowYouFoundUsTitle => 'كيف عرفت GitSync؟';
 
   @override
-  String get onboardingHowYouFoundUsSubtitle => 'Help us understand where our users come from (select all that apply)';
+  String get onboardingHowYouFoundUsSubtitle => 'ساعدنا في فهم مصدر مستخدمينا (اختر كل ما ينطبق)';
 
   @override
   String get sourceReddit => 'Reddit';
@@ -771,7 +771,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sourceMedium => 'Medium';
 
   @override
-  String get sourceGoogle => 'Google Search';
+  String get sourceGoogle => 'بحث Google';
 
   @override
   String get sourceGithubFdroid => 'GitHub / F-Droid';
@@ -780,22 +780,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sourceStore => 'Play Store / App Store';
 
   @override
-  String get sourceWordOfMouth => 'Word of mouth';
+  String get sourceWordOfMouth => 'كلام الناس';
 
   @override
-  String get sourceAdvertisements => 'Advertisements';
+  String get sourceAdvertisements => 'إعلانات';
 
   @override
-  String get sourceObsidian => 'Obsidian Git Plugin';
+  String get sourceObsidian => 'إضافة Obsidian Git';
 
   @override
-  String get sourceAiSearch => 'AI Search (ChatGPT, Claude, Grok)';
+  String get sourceAiSearch => 'بحث بالذكاء الاصطناعي (ChatGPT, Claude, Grok)';
 
   @override
-  String get sourceOther => 'Other';
+  String get sourceOther => 'أخرى';
 
   @override
-  String get sourceOtherHint => 'Tell us where';
+  String get sourceOtherHint => 'أخبرنا من أين';
 
   @override
   String get currentBranch => 'الفرع الحالي';
@@ -979,13 +979,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get useForWidgetManualSync => 'استخدام لودجت المزامنة اليدوية';
 
   @override
-  String get remoteAuthMismatchTitle => 'Auth won\'t work with this remote';
+  String get remoteAuthMismatchTitle => 'المصادقة لا تعمل مع هذا المستودع البعيد';
 
   @override
-  String get remoteAuthMismatchUsesSsh => 'This remote uses SSH — tap to switch';
+  String get remoteAuthMismatchUsesSsh => 'هذا المستودع يستخدم SSH — اضغط للتبديل';
 
   @override
-  String get remoteAuthMismatchUsesHttps => 'This remote uses HTTPS or OAuth — tap to switch';
+  String get remoteAuthMismatchUsesHttps => 'هذا المستودع يستخدم HTTPS أو OAuth — اضغط للتبديل';
 
   @override
   String get selectYourGitProviderAndAuthenticate => 'اختر مزود الخدمة وسجل دخولك';
@@ -1288,7 +1288,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get untrackAll => 'إلغاء تتبع الكل';
 
   @override
-  String get globalSettings => 'Global Settings';
+  String get globalSettings => 'الإعدادات العامة';
 
   @override
   String get darkMode => 'الوضع\nالداكن';
@@ -1939,13 +1939,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get networkUnavailableRetry => 'الشبكة غير متوفرة! سأحاول عند الاتصال';
 
   @override
-  String get networkStallManual => 'Poor network — please try again';
+  String get networkStallManual => 'شبكة ضعيفة — حاول مجدداً';
 
   @override
-  String get networkUnavailableManual => 'Network unavailable — please try again';
+  String get networkUnavailableManual => 'الشبكة غير متوفرة — حاول مجدداً';
 
   @override
-  String get networkRetryComplete => 'Queued operation completed';
+  String get networkRetryComplete => 'اكتملت العملية المُجدولة';
 
   @override
   String get failedToResolveAddressMessage => 'تعذر الوصول للخادم. تحقق من الإنترنت أو الرابط.';
@@ -2324,17 +2324,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noRepoSetup => 'قم بإعداد مستودع أولاً';
 
   @override
-  String get enableAiFeatures => 'Enable AI Features';
+  String get enableAiFeatures => 'تفعيل ميزات الذكاء الاصطناعي';
 
   @override
-  String get hideAiFeatures => 'Hide AI Features';
+  String get hideAiFeatures => 'إخفاء ميزات الذكاء الاصطناعي';
 
   @override
-  String get hideAiFeaturesConfirmTitle => 'Hide AI Features?';
+  String get hideAiFeaturesConfirmTitle => 'إخفاء ميزات الذكاء الاصطناعي؟';
 
   @override
   String get hideAiFeaturesConfirmMsg =>
-      'This will remove the AI tab and all AI buttons throughout the app. You can re-enable AI features anytime from Global Settings.';
+      'سيتم إزالة تبويب الذكاء الاصطناعي وكل أزراره من التطبيق. يمكنك إعادة تفعيلها من الإعدادات العامة في أي وقت.';
 
   @override
   String get aiSetupTitle => 'إعداد الذكاء الاصطناعي';

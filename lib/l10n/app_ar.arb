@@ -260,6 +260,21 @@
     "onboardingAuthTitle": "المصادقة",
     "onboardingAuthSubtitle": "سجل دخولك مع مزود Git المفضل",
     "onboardingLaunchWiki": "فتح الـ Wiki",
+    "onboardingHowYouFoundUsTitle": "كيف عرفت GitSync؟",
+    "onboardingHowYouFoundUsSubtitle": "ساعدنا في فهم مصدر مستخدمينا (اختر كل ما ينطبق)",
+    "sourceReddit": "Reddit",
+    "sourceYoutube": "YouTube",
+    "sourceDiscord": "Discord",
+    "sourceMedium": "Medium",
+    "sourceGoogle": "بحث Google",
+    "sourceGithubFdroid": "GitHub / F-Droid",
+    "sourceStore": "Play Store / App Store",
+    "sourceWordOfMouth": "كلام الناس",
+    "sourceAdvertisements": "إعلانات",
+    "sourceObsidian": "إضافة Obsidian Git",
+    "sourceAiSearch": "بحث بالذكاء الاصطناعي (ChatGPT, Claude, Grok)",
+    "sourceOther": "أخرى",
+    "sourceOtherHint": "أخبرنا من أين",
 
     "@@x-HOME_PAGE": "الرئيسية",
     "currentBranch": "الفرع الحالي",
@@ -357,6 +372,9 @@
     "importPrivateKey": "استيراد مفتاح خاص",
     "importPrivateKeyMsg": "الصق مفتاحك الخاص أدناه لاستخدام حساب موجود.",
     "importKey": "استيراد",
+    "remoteAuthMismatchTitle": "المصادقة لا تعمل مع هذا المستودع البعيد",
+    "remoteAuthMismatchUsesSsh": "هذا المستودع يستخدم SSH — اضغط للتبديل",
+    "remoteAuthMismatchUsesHttps": "هذا المستودع يستخدم HTTPS أو OAuth — اضغط للتبديل",
 
     "@@x-CLONE_REPO_PAGE": "نسخ المستودع",
     "cloneRepo": "نسخ مستودع بعيد",
@@ -428,6 +446,8 @@
     "proceedAnyway": "المتابعة على أي حال؟",
     "moreOptions": "خِيارات أكثر",
     "untrackAll": "إلغاء تتبع الكل",
+
+    "globalSettings": "الإعدادات العامة",
 
     "@@x-GLOBAL_SETTINGS_PAGE": "الإعدادات العامة",
     "darkMode": "الوضع\nالداكن",
@@ -677,6 +697,9 @@
     "gitObsidianFoundTitle": "تنبيه Obsidian Git",
     "gitObsidianFoundMessage": "هذا المستودع يحتوي على خزنة Obsidian مع إضافة Git مفعلة. يرجى تعطيلها لتجنب التعارض!",
     "gitObsidianFoundAction": "عرض الدليل",
+    "networkStallManual": "شبكة ضعيفة — حاول مجدداً",
+    "networkUnavailableManual": "الشبكة غير متوفرة — حاول مجدداً",
+    "networkRetryComplete": "اكتملت العملية المُجدولة",
 
     "@@x-ISSUE_REPORTING": "الإبلاغ عن مشكلة",
     "githubIssueOauthTitle": "ربط GitHub للإبلاغ تلقائياً",
@@ -804,5 +827,9 @@
 
     "@@x-AI": "الذكاء الاصطناعي",
     "aiSetupTitle": "إعداد الذكاء الاصطناعي",
-    "aiSetupMsg": "قم بتهيئة مزود خدمة ذكاء اصطناعي لاستخدام هذه الميزة. هل تذهب للإعدادات؟"
+    "aiSetupMsg": "قم بتهيئة مزود خدمة ذكاء اصطناعي لاستخدام هذه الميزة. هل تذهب للإعدادات؟",
+    "enableAiFeatures": "تفعيل ميزات الذكاء الاصطناعي",
+    "hideAiFeatures": "إخفاء ميزات الذكاء الاصطناعي",
+    "hideAiFeaturesConfirmTitle": "إخفاء ميزات الذكاء الاصطناعي؟",
+    "hideAiFeaturesConfirmMsg": "سيتم إزالة تبويب الذكاء الاصطناعي وكل أزراره من التطبيق. يمكنك إعادة تفعيلها من الإعدادات العامة في أي وقت."
 }

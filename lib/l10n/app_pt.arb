@@ -286,6 +286,22 @@
 
   "onboardingLaunchWiki": "Abrir a wiki",
 
+  "onboardingHowYouFoundUsTitle": "Como descobriu o GitSync?",
+  "onboardingHowYouFoundUsSubtitle": "Ajude-nos a entender de onde vêm os nossos utilizadores (selecione tudo o que se aplicar)",
+  "sourceReddit": "Reddit",
+  "sourceYoutube": "YouTube",
+  "sourceDiscord": "Discord",
+  "sourceMedium": "Medium",
+  "sourceGoogle": "Google Search",
+  "sourceGithubFdroid": "GitHub / F-Droid",
+  "sourceStore": "Play Store / App Store",
+  "sourceWordOfMouth": "Boca a boca",
+  "sourceAdvertisements": "Anúncios",
+  "sourceObsidian": "Obsidian Git Plugin",
+  "sourceAiSearch": "Pesquisa IA (ChatGPT, Claude, Grok)",
+  "sourceOther": "Outro",
+  "sourceOtherHint": "Diga-nos onde",
+
   "@@x-HOME_PAGE": "",
   "currentBranch": "Branch Atual",
   "detachedHead": "Detached HEAD",
