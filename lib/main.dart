@@ -983,7 +983,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
     ref.invalidate(hasGitFiltersProvider);
     ref.invalidate(conflictingFilesProvider);
     ref.invalidate(recentCommitsProvider);
-    ref.invalidate(recommendedActionProvider);
+    ref.read(recommendedActionProvider.notifier).refresh();
     ref.invalidate(syncMessageEnabledProvider);
     ref.invalidate(lastSyncMethodProvider);
     ref.invalidate(clientModeEnabledProvider);
