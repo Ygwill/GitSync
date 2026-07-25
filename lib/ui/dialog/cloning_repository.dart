@@ -4,11 +4,13 @@ import 'package:GitSync/api/manager/git_manager.dart';
 import 'package:flutter/material.dart' as mat;
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import '../../../constant/dimens.dart';
 import '../../../ui/dialog/base_alert_dialog.dart';
 import 'package:GitSync/global.dart';
 
 Future<void> showDialog(BuildContext context, String repoUrl, String dir, Function(String?) callback, {int? depth, bool bare = false}) async {
+  WakelockPlus.enable();
   String task = "";
   double progress = 0.0;
   StateSetter? setState;
@@ -29,6 +31,7 @@ Future<void> showDialog(BuildContext context, String repoUrl, String dir, Functi
   ) {
     taskSub.cancel();
     progressSub.cancel();
+    WakelockPlus.disable();
     final rootNavigator = Navigator.of(context, rootNavigator: true);
     if (rootNavigator.canPop()) rootNavigator.pop();
     callback(result);
