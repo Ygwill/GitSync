@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
-
 import 'package:GitSync/api/manager/auth/github_app_manager.dart';
 import 'package:GitSync/api/manager/settings_manager.dart';
 import 'package:GitSync/ui/component/button_setting.dart';
@@ -120,9 +119,33 @@ Future<void> main() async {
       });
       initLogger("${(await getTemporaryDirectory()).path}/logs", maxFileCount: 50, maxFileLength: 1 * 1024 * 1024);
       await uiSettingsManager.reinit();
-      // Loads premiumManager initial state
       initAsync(() async => await premiumManager.init());
-      runApp(const ProviderScope(child: MyApp()));
+      final container = ProviderContainer();
+
+      await container.read(branchNameProvider.future);
+      await container.read(remoteUrlLinkProvider.future);
+      await container.read(listRemotesProvider.future);
+      await container.read(branchNamesProvider.future);
+      await container.read(recentCommitsProvider.future);
+      await container.read(recommendedActionProvider.future);
+      await container.read(remoteNameProvider.future);
+      await container.read(syncMessageEnabledProvider.future);
+      await container.read(lastSyncMethodProvider.future);
+      await container.read(clientModeEnabledProvider.future);
+      await container.read(gitProviderProvider.future);
+      await container.read(postFooterProvider.future);
+      await container.read(authorNameProvider.future);
+      await container.read(authorEmailProvider.future);
+      await container.read(syncMessageProvider.future);
+      await container.read(githubScopedOauthProvider.future);
+      await container.read(isAuthenticatedProvider.future);
+      await container.read(repoNamesProvider.future);
+      await container.read(repoIndexProvider.future);
+      await container.read(gitDirPathProvider.future);
+      await container.read(pinnedShowcaseFeaturesProvider.future);
+      await container.read(aiFeaturesEnabledProvider.future);
+
+      runApp(ProviderScope(parent: container, child: const MyApp()));
     },
     (error, stackTrace) {
       e(LogType.Global.name, error, stackTrace);
@@ -806,8 +829,8 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
   bool demoConflicting = false;
 
   bool devTools = false;
-  final ValueNotifier<int> _tabIndex = ValueNotifier(1); // Default to Home tab
-  final PageController _pageController = PageController(initialPage: 1);
+  late final ValueNotifier<int> _tabIndex;
+  late final PageController _pageController;
   final GlobalKey<NavigatorState> _homeNavigatorKey = GlobalKey<NavigatorState>();
   final ValueNotifier<bool> _homeCanPop = ValueNotifier(false);
   late final _NestedNavigatorObserver _homeNavigatorObserver = _NestedNavigatorObserver(_homeCanPop);
@@ -976,13 +999,12 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
     await colours.reloadTheme(context);
     if (token != _reloadToken) return;
     if (mounted) setState(() {});
-    ref.invalidate(branchNameProvider);
-    ref.invalidate(remoteUrlLinkProvider);
-    ref.invalidate(listRemotesProvider);
-    ref.invalidate(branchNamesProvider);
-    ref.invalidate(hasGitFiltersProvider);
-    ref.invalidate(conflictingFilesProvider);
-    ref.invalidate(recentCommitsProvider);
+    ref.read(branchNameProvider.notifier).refresh();
+    ref.read(remoteUrlLinkProvider.notifier).refresh();
+    ref.read(listRemotesProvider.notifier).refresh();
+    ref.read(branchNamesProvider.notifier).refresh();
+    ref.read(conflictingFilesProvider.notifier).refresh();
+    ref.read(recentCommitsProvider.notifier).refresh();
     ref.read(recommendedActionProvider.notifier).refresh();
     ref.invalidate(syncMessageEnabledProvider);
     ref.invalidate(lastSyncMethodProvider);
@@ -999,7 +1021,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
     ref.invalidate(featureCountsProvider);
     ref.invalidate(gitDirPathProvider);
     ref.invalidate(remoteNameProvider);
-    ref.invalidate(submodulePathsProvider);
+    ref.read(submodulePathsProvider.notifier).refresh();
     if (token != _reloadToken) return;
     if (mounted) setState(() {});
   }
@@ -1063,6 +1085,10 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
 
   @override
   void initState() {
+    final aiEnabled = ref.read(aiFeaturesEnabledProvider).valueOrNull ?? true;
+    final homeIndex = aiEnabled ? 1 : 0;
+    _tabIndex = ValueNotifier(homeIndex);
+    _pageController = PageController(initialPage: homeIndex);
     AccessibilityServiceHelper.init(context, (fn) => mounted ? setState(fn) : null);
     WidgetsBinding.instance.addObserver(this);
 
@@ -2725,12 +2751,10 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
                                                                       final webUrl = ref.watch(remoteUrlLinkProvider).valueOrNull?.$2;
                                                                       final authenticated = ref.watch(isAuthenticatedProvider).valueOrNull ?? false;
                                                                       final gitDirPath = ref.watch(gitDirPathProvider).valueOrNull;
-                                                                      return FutureBuilder<List<String>>(
-                                                                        future: uiSettingsManager.getStringList(
-                                                                          StorageKey.setman_pinnedShowcaseFeatures,
-                                                                        ),
-                                                                        builder: (context, snapshot) {
-                                                                          final data = snapshot.data;
+                                                                      return ProviderBuilder<List<String>>(
+                                                                        provider: pinnedShowcaseFeaturesProvider,
+                                                                        builder: (context, async) {
+                                                                          final data = async.valueOrNull;
                                                                           if (data == null) return SizedBox(width: double.infinity, height: 0);
                                                                           if (!gitProviderValue.isOAuthProvider ||
                                                                               !authenticated ||
@@ -3317,10 +3341,10 @@ class _MyHomePageState extends ConsumerState<MyHomePage> with WidgetsBindingObse
                                                                         final remoteUrlLinkValue = remoteUrlLinkAsync.valueOrNull;
                                                                         final remotesList = remotesAsync.valueOrNull ?? [];
                                                                         final actions = remoteEllipsisActions(remotesList.length);
-                                                                        return FutureBuilder<String>(
-                                                                          future: uiSettingsManager.getRemote(),
-                                                                          builder: (context, currentRemoteSnapshot) {
-                                                                            final currentRemoteName = currentRemoteSnapshot.data;
+                                                                        return ProviderBuilder<String>(
+                                                                          provider: remoteNameProvider,
+                                                                          builder: (context, currentRemoteNameAsync) {
+                                                                            final currentRemoteName = currentRemoteNameAsync.valueOrNull;
                                                                             final hasDir = gitDirPath?.$1 != null;
                                                                             final noRemoteWithDir = remotesList.isEmpty && hasDir;
                                                                             // Build dropdown items: "Add Remote" first, then each remote name

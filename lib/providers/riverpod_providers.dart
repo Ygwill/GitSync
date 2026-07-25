@@ -36,29 +36,29 @@ abstract class CachedGitNotifier<T> extends AsyncNotifier<T> {
 
   @override
   Future<T> build() async {
-    final repoIndex = await repoManager.getInt(StorageKey.repoman_repoIndex);
-    final manager = await SettingsManager.scoped(repoIndex);
-    _scopedManager = manager;
-
     var cancelled = false;
     ref.onDispose(() => cancelled = true);
 
     bool cacheValid = true;
     late T cached;
     try {
-      cached = await readCache(manager);
+      cached = await readCache(uiSettingsManager);
     } catch (e, s) {
       cacheValid = false;
       Logger.logError(LogType.Global, e, s);
     }
 
     if (cacheValid) {
+      final repoIndex = await repoManager.getInt(StorageKey.repoman_repoIndex);
       final hasCache = cached != null
           && (cached is! List || cached.isNotEmpty)
           && (cached is! Map || cached.isNotEmpty);
       if (hasCache) {
+        state = AsyncData(cached);
         () async {
           try {
+            final manager = await SettingsManager.scoped(repoIndex);
+            _scopedManager = manager;
             final live = await fetchLive();
             if (!cancelled && await _isCurrentIndex(repoIndex)) {
               state = AsyncData(live);
@@ -77,6 +77,10 @@ abstract class CachedGitNotifier<T> extends AsyncNotifier<T> {
       }
     }
 
+    final repoIndex = await repoManager.getInt(StorageKey.repoman_repoIndex);
+    final manager = await SettingsManager.scoped(repoIndex);
+    _scopedManager = manager;
+
     final live = await fetchLive();
     if (!cancelled && await _isCurrentIndex(repoIndex)) {
       await writeCache(manager, live);
@@ -87,6 +91,24 @@ abstract class CachedGitNotifier<T> extends AsyncNotifier<T> {
   void set(T value) {
     state = AsyncData(value);
     writeCache(_scopedManager ?? uiSettingsManager, value);
+  }
+
+  Future<T?> refresh() async {
+    final repoIndex = await repoManager.getInt(StorageKey.repoman_repoIndex);
+    final manager = await SettingsManager.scoped(repoIndex);
+    _scopedManager = manager;
+    final previous = state.valueOrNull;
+    try {
+      final live = await fetchLive();
+      if (await _isCurrentIndex(repoIndex)) {
+        state = AsyncData(live);
+        await writeCache(manager, live);
+      }
+      return live;
+    } catch (e) {
+      if (await _isCurrentIndex(repoIndex) && previous != null) state = AsyncData(previous as T);
+      rethrow;
+    }
   }
 }
 
@@ -317,22 +339,6 @@ class RecommendedActionNotifier extends CachedGitNotifier<int?> {
   @override
   Future<void> writeCache(SettingsManager manager, int? value) => manager.setIntNullable(StorageKey.setman_recommendedAction, value);
 
-  Future<int?> refresh() async {
-    final repoIndex = await repoManager.getInt(StorageKey.repoman_repoIndex);
-    final manager = await SettingsManager.scoped(repoIndex);
-    final previous = state.valueOrNull;
-    try {
-      final live = await fetchLive();
-      if (await _isCurrentIndex(repoIndex)) {
-        state = AsyncData(live);
-        await writeCache(manager, live);
-      }
-      return live;
-    } catch (e) {
-      if (await _isCurrentIndex(repoIndex)) state = AsyncData(previous);
-      rethrow;
-    }
-  }
 }
 
 final recommendedActionProvider = AsyncNotifierProvider<RecommendedActionNotifier, int?>(RecommendedActionNotifier.new);
@@ -564,6 +570,16 @@ class RemoteNameNotifier extends SettingNotifier<String> {
 
 final remoteNameProvider = AsyncNotifierProvider<RemoteNameNotifier, String>(RemoteNameNotifier.new);
 
+class PinnedShowcaseFeaturesNotifier extends SettingNotifier<List<String>> {
+  @override
+  Future<List<String>> read() => uiSettingsManager.getStringList(StorageKey.setman_pinnedShowcaseFeatures);
+
+  @override
+  Future<void> write(List<String> value) => uiSettingsManager.setStringList(StorageKey.setman_pinnedShowcaseFeatures, value);
+}
+
+final pinnedShowcaseFeaturesProvider = AsyncNotifierProvider<PinnedShowcaseFeaturesNotifier, List<String>>(PinnedShowcaseFeaturesNotifier.new);
+
 class SubmodulePathsNotifier extends CachedGitNotifier<List<String>> {
   @override
   Future<List<String>> readCache(SettingsManager manager) => manager.getStringList(StorageKey.setman_submodulePaths);
@@ -572,9 +588,11 @@ class SubmodulePathsNotifier extends CachedGitNotifier<List<String>> {
   Future<List<String>> fetchLive() async {
     final dirPath = (await ref.read(gitDirPathProvider.future))?.$1;
     if (dirPath == null) return [];
-    return runGitOperation<List<String>>(LogType.GetSubmodules, (event) => (event?["result"] as List?)?.map<String>((path) => "$path").toList() ?? <String>[], {
-      "dir": dirPath,
-    });
+    return runGitOperation<List<String>>(
+      LogType.GetSubmodules,
+      (event) => (event?["result"] as List?)?.map<String>((path) => "$path").toList() ?? <String>[],
+      {"dir": dirPath},
+    );
   }
 
   @override
