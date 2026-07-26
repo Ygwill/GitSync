@@ -203,6 +203,11 @@ Future<bool> handleIfNetworkError(Object e, LogType retryKey, Map<String, dynami
     if (schedule) scheduleNetworkRetryOp(retryKey, retryEvent, retryCount: retryCount + 1);
     return true;
   }
+  if (GitManager.isDnsErrorOnKnownHost(msg)) {
+    await showNetworkMessage(schedule ? s.networkUnavailableRetry : s.networkUnavailableManual);
+    if (schedule) scheduleNetworkRetryOp(retryKey, retryEvent, retryCount: retryCount + 1);
+    return true;
+  }
   if (GitManager.isNetworkUnavailableError(msg) && !await hasNetworkConnection()) {
     await showNetworkMessage(schedule ? s.networkUnavailableRetry : s.networkUnavailableManual);
     if (schedule) scheduleNetworkRetryOp(retryKey, retryEvent, retryCount: retryCount + 1);
