@@ -623,6 +623,7 @@ class _OnboardingSetup extends ConsumerState<OnboardingSetup> with WidgetsBindin
       await _controller.reverse();
       screenIndex.value = Screen.EnableNotifications;
     } else {
+      await uiSettingsManager.setBool(StorageKey.setman_syncMessageEnabled, true);
       await showAllFilesAccessOrNext();
     }
   }
@@ -2134,6 +2135,7 @@ class _OnboardingSetup extends ConsumerState<OnboardingSetup> with WidgetsBindin
                       constraints: BoxConstraints(),
                       onPressed: () async {
                         if (await Permission.notification.request().isGranted) {
+                          await uiSettingsManager.setBool(StorageKey.setman_syncMessageEnabled, true);
                           await showAllFilesAccessOrNext();
                         }
                       },
