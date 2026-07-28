@@ -50,9 +50,7 @@ abstract class CachedGitNotifier<T> extends AsyncNotifier<T> {
 
     if (cacheValid) {
       final repoIndex = await repoManager.getInt(StorageKey.repoman_repoIndex);
-      final hasCache = cached != null
-          && (cached is! List || cached.isNotEmpty)
-          && (cached is! Map || cached.isNotEmpty);
+      final hasCache = cached != null && (cached is! List || cached.isNotEmpty) && (cached is! Map || cached.isNotEmpty);
       if (hasCache) {
         state = AsyncData(cached);
         () async {
@@ -105,10 +103,12 @@ abstract class CachedGitNotifier<T> extends AsyncNotifier<T> {
         await writeCache(manager, live);
       }
       return live;
+    } on OperationNotExecuted {
     } catch (e) {
       if (await _isCurrentIndex(repoIndex) && previous != null) state = AsyncData(previous as T);
       rethrow;
     }
+    return null;
   }
 }
 
@@ -338,7 +338,6 @@ class RecommendedActionNotifier extends CachedGitNotifier<int?> {
 
   @override
   Future<void> writeCache(SettingsManager manager, int? value) => manager.setIntNullable(StorageKey.setman_recommendedAction, value);
-
 }
 
 final recommendedActionProvider = AsyncNotifierProvider<RecommendedActionNotifier, int?>(RecommendedActionNotifier.new);

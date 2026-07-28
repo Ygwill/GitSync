@@ -114,7 +114,8 @@ class GitsyncService {
     networkUnavailableManual: "Network unavailable — please try again",
     networkRetryComplete: "Queued operation completed",
   );
-  bool isScheduled = false;
+
+  final Set<int> scheduledIndices = {};
   bool isSyncing = false;
 
   static const String _widgetStatusKey = 'forceSyncWidget_status';
@@ -191,12 +192,12 @@ class GitsyncService {
     final settingsManager = SettingsManager();
     await settingsManager.reinit(repoIndex: repomanRepoindex);
 
-    if (isScheduled) {
+    if (scheduledIndices.contains(repomanRepoindex)) {
       await _displaySyncMessage(settingsManager, s.syncInProgress);
       return;
     } else {
       if (isSyncing) {
-        isScheduled = true;
+        scheduledIndices.add(repomanRepoindex);
         Logger.gmLog(type: LogType.Sync, "Sync Scheduled");
         await _displaySyncMessage(settingsManager, s.syncScheduled);
         return;
@@ -248,7 +249,7 @@ class GitsyncService {
       final remotesList = await GitManager.listRemotes(repomanRepoindex, 3);
       if (remotesList.isEmpty) {
         Logger.gmLog(type: LogType.Sync, "No remote configured, skipping sync");
-        isScheduled = false;
+        scheduledIndices.remove(repomanRepoindex);
         terminal = 'error';
         return;
       }
@@ -258,13 +259,13 @@ class GitsyncService {
           : (await settingsManager.getGitHttpAuthCredentials()).$2.isEmpty) {
         Logger.gmLog(type: LogType.Sync, "Credentials Not Found");
         _displaySyncMessage(null, "Credentials not found");
-        isScheduled = false;
+        scheduledIndices.remove(repomanRepoindex);
         terminal = 'error';
         return;
       }
       if ((await GitManager.getConflicting(repomanRepoindex, 3)).isNotEmpty) {
         _displaySyncMessage(null, s.ongoingMergeConflict);
-        isScheduled = false;
+        scheduledIndices.remove(repomanRepoindex);
         terminal = 'error';
         return;
       }
@@ -272,7 +273,7 @@ class GitsyncService {
       if (forced) {
         await _displaySyncMessage(settingsManager, s.detectingChanges);
       }
-      Logger.gmLog(type: LogType.Sync, "Start Sync");
+      Logger.gmLog(type: LogType.Sync, "Start Sync $repomanRepoindex");
 
       bool? pullResult = false;
       bool? pushResult = false;
@@ -291,7 +292,7 @@ class GitsyncService {
         bool synced = false;
 
         final optimisedSyncFlag = await settingsManager.getBool(StorageKey.setman_optimisedSyncExperimental);
-        int? recommendedAction = await GitManager.getRecommendedAction(priority: 3);
+        int? recommendedAction = await GitManager.getRecommendedAction(priority: 3, repoIndex: repomanRepoindex);
 
         if (optimisedSyncFlag && recommendedAction == -1) return;
 
@@ -326,7 +327,7 @@ class GitsyncService {
           return;
         }
 
-        recommendedAction = await GitManager.getRecommendedAction(priority: 3);
+        recommendedAction = await GitManager.getRecommendedAction(priority: 3, repoIndex: repomanRepoindex);
         if (optimisedSyncFlag && recommendedAction == -1) return;
 
         if (!optimisedSyncFlag || [2, 3].contains(recommendedAction)) {
@@ -370,7 +371,7 @@ class GitsyncService {
       if (pushResult == null || pullResult == null) {
         Logger.gmLog(type: LogType.Sync, "Sync failed");
       } else if (pushResult == true || pullResult == true) {
-        await GitManager.getRecentCommits();
+        await GitManager.getRecentCommits(repoIndex: repomanRepoindex);
         await _displaySyncMessage(settingsManager, s.syncComplete);
         Logger.dismissError(null);
         Logger.gmLog(type: LogType.Sync, "Sync Complete!");
@@ -382,7 +383,7 @@ class GitsyncService {
         Logger.gmLog(type: LogType.Sync, "Sync Complete!");
       }
 
-      await GitManager.getRecentCommits(priority: 3);
+      await GitManager.getRecentCommits(priority: 3, repoIndex: repomanRepoindex);
     } on OperationNotExecuted {
     } catch (e, st) {
       if (!await handleIfNetworkError(e, LogType.Sync, {"repoman_repoIndex": "$repomanRepoindex", "retryCount": retryCount})) {
@@ -394,10 +395,13 @@ class GitsyncService {
       if (myGen == _syncGeneration) {
         await _finishWidget(terminal);
       }
-      if (isScheduled) {
-        Logger.gmLog(type: LogType.Sync, "Scheduled Sync Starting");
-        isScheduled = false;
-        debouncedSync(repomanRepoindex);
+      if (scheduledIndices.isNotEmpty) {
+        final toSync = scheduledIndices.toSet();
+        scheduledIndices.clear();
+        for (final idx in toSync) {
+          Logger.gmLog(type: LogType.Sync, "Scheduled Sync Starting");
+          debouncedSync(idx);
+        }
       }
     }
   }
@@ -470,7 +474,7 @@ class GitsyncService {
       if (packageNames.contains(lastOpenPackageNameExcludingInputs) &&
           !packageNames.contains(packageName) &&
           !enabledInputMethods.contains(packageName)) {
-        Logger.gmLog(type: LogType.AccessibilityService, "Application Closed $packageName");
+        Logger.gmLog(type: LogType.AccessibilityService, "Application Closed $packageName $index");
         if (syncClosed) {
           debouncedSync(index);
         }
@@ -479,7 +483,7 @@ class GitsyncService {
       if (!packageNames.contains(lastOpenPackageNameExcludingInputs) &&
           packageNames.contains(packageName) &&
           !enabledInputMethods.contains(packageName)) {
-        Logger.gmLog(type: LogType.AccessibilityService, "Application Opened $packageName");
+        Logger.gmLog(type: LogType.AccessibilityService, "Application Opened $packageName $index");
         if (syncOpened) {
           debouncedSync(index);
         }
