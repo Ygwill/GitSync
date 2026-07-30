@@ -10,7 +10,7 @@ class PremiumManager {
   final ValueNotifier<bool?> hasPremiumNotifier = ValueNotifier(null);
 
   Future<void> init() async {
-    await updateGitHubSponsorPremium();
+    // await updateGitHubSponsorPremium();
 
     final isPremium = await _readPremiumStatus();
     hasPremiumNotifier.value = isPremium;
