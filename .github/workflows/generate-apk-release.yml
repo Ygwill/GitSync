@@ -38,13 +38,12 @@ jobs:
           ${{ secrets.SECRETS }}
           EOF
 
-      # ========== 修正：使用 subosito/flutter-action 并禁用缓存 ==========
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.0'
+          flutter-version: '3.35.2'   # Dart 3.9.0[reference:5]
           channel: 'stable'
-          cache: false  # 强制下载，避免被缓存干扰
+          cache: false                # 强制下载，避免被缓存干扰
 
       - name: Verify Flutter Version
         run: |
