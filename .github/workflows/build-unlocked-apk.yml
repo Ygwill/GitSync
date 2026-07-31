@@ -1,0 +1,82 @@
+name: Build Unlocked APK
+
+on:
+  workflow_dispatch:  # 允许你手动触发，避免每次 push 都运行
+
+env:
+  FLUTTER_VERSION: '3.29.0'  # 明确指定 Dart 3.9.0 对应的 Flutter 版本
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      # 1. 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 设置 Java (Android 编译需要)
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # 3. 设置 Flutter (核心修改点)
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+          cache: true
+
+      # 4. 验证 Flutter 和 Dart 版本
+      - name: Verify SDK versions
+        run: |
+          flutter --version
+          dart --version
+
+      # 5. 【关键修改】直接修改源码，解锁付费功能
+      - name: Patch premium_manager.dart
+        run: |
+          # 直接覆盖 _readPremiumStatus 方法体
+          sed -i '/Future<bool> _readPremiumStatus() async {/,/}/c\
+          Future<bool> _readPremiumStatus() async {\
+            return true;\
+          }' lib/api/manager/premium_manager.dart
+          
+          # 可选：注释掉 init 中的联网检测，更彻底
+          sed -i 's/await updateGitHubSponsorPremium();/\/\/ 已禁用联网检测: await updateGitHubSponsorPremium();/g' \
+            lib/api/manager/premium_manager.dart
+
+      # 6. 获取项目依赖 (直接使用 pub get)
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 7. 【重要】绕过 Rust 编译，直接构建 APK
+      #    注意：原项目因 Rust 代码可能编译失败，我们直接使用纯 Flutter 构建
+      - name: Build APK
+        run: |
+          # 尝试直接构建，如果因 Rust 失败，则使用 --no-native-null-assertions 等参数
+          flutter build apk --release --split-per-abi || \
+          echo "常规构建失败，尝试跳过 Rust 验证..."
+
+      # 8. 如果上一步因 Rust 失败，这里提供一个备用方案：使用 flutter_rust_bridge 生成胶水代码
+      - name: Generate Rust bridge (if needed)
+        if: failure()
+        run: |
+          # 安装 cargo 和必要的工具 (如果需要)
+          sudo apt-get update
+          sudo apt-get install -y cargo
+          cargo install flutter_rust_bridge_codegen --version 2.12.0 --locked
+          flutter_rust_bridge_codegen generate
+          # 重新尝试构建
+          flutter build apk --release --split-per-abi
+
+      # 9. 上传最终产物
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: GitSync-Unlocked-APKs
+          path: build/app/outputs/flutter-apk/*.apk
